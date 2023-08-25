@@ -5,7 +5,7 @@ import {
   getDocs,
   addDoc,
   updateDoc,
-  doc,
+  doc, deleteDoc
 } from "firebase/firestore";
 import "./App.css";
 
@@ -13,14 +13,10 @@ function App() {
   const [newName, setNewName] = useState("");
   const [newAge, setNewAge] = useState(0);
 
-  // const obj = {
-  //   name: "",
-  //   age: 0
-  // }
-
   const [users, setUsers] = useState([]);
+  const [toggleFetch, setToggleFetch] = useState(false);
+
   const usersCollectionRef = collection(db, "users");
-  const [toggleFetch, setToggleFetch] = useState(false)
 
   const getUsers = async () => {
     const data = await getDocs(usersCollectionRef);
@@ -28,16 +24,23 @@ function App() {
   };
 
   const createUser = async () => {
-    await addDoc(usersCollectionRef, { Name: newName, age: newAge });
-    setToggleFetch((prev) => !prev)
+    await addDoc(usersCollectionRef, { Name: newName, age: Number(newAge) });
+    setToggleFetch((prev) => !prev);
   };
 
   const updateUser = async (id, age) => {
     const userDoc = doc(db, "users", id);
-    const newFields = { age: Number(age) + 1 };
+    const newFields = { age: Number (age) + 1 };
     await updateDoc(userDoc, newFields);
-    setToggleFetch((prev) => !prev)
+    setToggleFetch((prev) => !prev);
   };
+
+  const deleteUser = async (id) => {
+    const userdocforDelete = doc(db,"users",id)
+    await deleteDoc(userdocforDelete);
+    setToggleFetch((prev) => !prev);
+
+  }
 
   useEffect(() => {
     getUsers();
@@ -69,7 +72,12 @@ function App() {
               <div>
                 <h1> Name: {user.Name}</h1>
                 <h1>Age: {user.age}</h1>
-                <button onClick={() => updateUser(user.id, user.age)}>Increase age</button>
+                <button onClick={() => updateUser(user.id, user.age)}>
+                  Increase age
+                </button>
+                <button onClick={()=>deleteUser(user.id)}>
+                  Delete
+                </button>
               </div>
             </div>
           );

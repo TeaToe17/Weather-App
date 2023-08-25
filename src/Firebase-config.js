@@ -2,15 +2,14 @@ import { initializeApp } from "firebase/app";
 import {getFirestore} from "@firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyAEbF8QWzPYb5e83_iNJ8UdxNJZK4MWkdA",
-    authDomain: "crud-37e47.firebaseapp.com",
-    projectId: "crud-37e47",
-    storageBucket: "crud-37e47.appspot.com",
-    messagingSenderId: "638920670573",
-    appId: "1:638920670573:web:70f01ce783729d81266e64",
-    measurementId: "G-396MDV1VF6"
-  };
-
+  apiKey: "AIzaSyCFvb7Y993YzA29ELowMSLx6x8mg_eMfDc",
+  authDomain: "crud-992ed.firebaseapp.com",
+  projectId: "crud-992ed",
+  storageBucket: "crud-992ed.appspot.com",
+  messagingSenderId: "895213859433",
+  appId: "1:895213859433:web:60809acb233c2e72eae8f8",
+  measurementId: "G-RKC2SEZXFG",
+};
 
   const app = initializeApp(firebaseConfig);
 
