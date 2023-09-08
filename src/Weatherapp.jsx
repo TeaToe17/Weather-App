@@ -45,16 +45,19 @@ const Weatherapp = () => {
       });
   };
 
-  // window.onload = function () {
-  //   const input = document.getElementById("myInput");
-  //   input.addEventListener("keypress", function (event) {
-  //     const searchbutton = document.getElementById("searchImageButton");
-  //     if (event === "Enter") {
-  //       event.preventDefault();
-  //       searchbutton.click();
-  //     }
-  //   });
-  // };
+  window.onload = function () {
+    const input = document.getElementById("myInput");
+    input.addEventListener("keydown", function (e) {
+      const searchbutton = document.getElementById("searchImageButton");
+
+      if (e.key == "Enter") {
+        e.preventDefault();
+        searchbutton.click();
+      }
+    });
+  };
+
+
 
   return (
     <div className="Weatherapp">
