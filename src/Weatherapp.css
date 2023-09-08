@@ -27,10 +27,12 @@ body {
   outline: none;
 }
 .Header img {
-  width: 53px;
+  width: 10%;
   margin: 3%;
-  height: 53px;
   border-radius: 208px;
+  background-color: white;
+  padding: 9px;
+  /* box-sizing: border-box; */
 }
 
 .Body {

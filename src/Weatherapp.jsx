@@ -25,7 +25,7 @@ const Weatherapp = () => {
       })
       .then((data) => {
         console.log(data);
-        if (data.error.code==1006) {
+        if (data.error.code == 1006) {
           setMyerror(data.error.message);
           console.log(myerror);
           setPlace("");
@@ -44,6 +44,17 @@ const Weatherapp = () => {
       });
   };
 
+  window.onload = function () {
+    const input = document.getElementById("myInput");
+    input.addEventListener("keypress", function (event) {
+      const searchbutton = document.getElementById("searchImageButton");
+      if (event === "Enter") {
+        event.preventDefault();
+        searchbutton.click();
+      }
+    });
+  };
+
   return (
     <div className="Weatherapp">
       <div className="Header">
@@ -51,9 +62,15 @@ const Weatherapp = () => {
           placeholder="Search"
           className="searchbar"
           onChange={(e) => setSearch(e.target.value)}
+          onSubmit={() => Searches()}
+          id="myInput"
         />
 
-        <img src={searchImg} onClick={() => Searches()}></img>
+        <img
+          src={searchImg}
+          onClick={() => Searches()}
+          id="searchImageButton"
+        ></img>
       </div>
       <div className="Body">
         <img src={centerImg}></img>
