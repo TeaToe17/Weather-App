@@ -18,7 +18,7 @@ const Weatherapp = () => {
   const [errorconditional, setErrorConditional] = useState(true);
 
   const Searches = () => {
-    let url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${search}&aqi=no`;
+    let url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${search}&aqi=no`;
     fetch(url)
       .then((response) => {
         return response.json();
