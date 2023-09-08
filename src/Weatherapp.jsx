@@ -10,14 +10,14 @@ import humid from "./images/humidity.png";
 const Weatherapp = () => {
   const apiKey = process.env.REACT_APP_API_KEY;
   const [search, setSearch] = useState("");
-  const [data, setData] = useState("");
   const [place, setPlace] = useState("");
   const [windspeed, setWindspeed] = useState("");
   const [humidity, setHumidity] = useState("");
   const [myerror, setMyerror] = useState("");
+  const [placeconditional, setPlaceConditional] = useState(true);
+  const [errorconditional, setErrorConditional] = useState(true);
 
-  const Searches = async () => {
-
+  const Searches = () => {
     let url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${search}&aqi=no`;
     fetch(url)
       .then((response) => {
@@ -28,14 +28,16 @@ const Weatherapp = () => {
         if (data.error) {
           setMyerror(data.error.message);
           console.log(myerror);
+          setPlace("");
         } else if (!data.error) {
           setPlace(data.location.country);
           setWindspeed(data.current.wind_mph);
           setHumidity(data.current.humidity);
+          setMyerror("");
         }
       })
       .catch((err) => {
-        setMyerror(err);
+        setMyerror("Connection Error");
       });
   };
 
@@ -52,7 +54,8 @@ const Weatherapp = () => {
       </div>
       <div className="Body">
         <img src={centerImg}></img>
-        <p id="country"> {place || myerror} </p>
+        {place ? <p> {place} </p> : ""}
+        {myerror ? <p> {myerror} </p> : ""}
       </div>
       <div className="Footer">
         <div className="Windspeed">
