@@ -25,35 +25,36 @@ const Weatherapp = () => {
       })
       .then((data) => {
         console.log(data);
-        if (data.error.code == 1006) {
-          setMyerror(data.error.message);
-          console.log(myerror);
-          setPlace("");
-        } else if (!data.error) {
+        if (!data.error) {
           setPlace(data.location.country);
           setWindspeed(data.current.wind_mph);
           setHumidity(data.current.humidity);
           setMyerror("");
+        } else if (data.error.code == 1006) {
+          setMyerror(data.error.message);
+          console.log(myerror);
+          setPlace("");
         } else if (data.error.code === 1003) {
           setMyerror("Input Required");
           setPlace("");
         }
       })
       .catch((err) => {
+        console.log(err);
         setMyerror("Connection Error");
       });
   };
 
-  window.onload = function () {
-    const input = document.getElementById("myInput");
-    input.addEventListener("keypress", function (event) {
-      const searchbutton = document.getElementById("searchImageButton");
-      if (event === "Enter") {
-        event.preventDefault();
-        searchbutton.click();
-      }
-    });
-  };
+  // window.onload = function () {
+  //   const input = document.getElementById("myInput");
+  //   input.addEventListener("keypress", function (event) {
+  //     const searchbutton = document.getElementById("searchImageButton");
+  //     if (event === "Enter") {
+  //       event.preventDefault();
+  //       searchbutton.click();
+  //     }
+  //   });
+  // };
 
   return (
     <div className="Weatherapp">
