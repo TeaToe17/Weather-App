@@ -25,7 +25,7 @@ const Weatherapp = () => {
       })
       .then((data) => {
         console.log(data);
-        if (data.error) {
+        if (data.error.code==1006) {
           setMyerror(data.error.message);
           console.log(myerror);
           setPlace("");
@@ -34,6 +34,9 @@ const Weatherapp = () => {
           setWindspeed(data.current.wind_mph);
           setHumidity(data.current.humidity);
           setMyerror("");
+        } else if (data.error.code === 1003) {
+          setMyerror("Input Required");
+          setPlace("");
         }
       })
       .catch((err) => {
