@@ -1,0 +1,75 @@
+body {
+  background: url("./images/background 2.jpg");
+  height: fit-content;
+}
+.Weatherapp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.Header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 30vh;
+}
+.Header input {
+  text-indent: 10px;
+  width: 40%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+}
+.Header img {
+  width: 53px;
+  margin: 3%;
+  height: 53px;
+  border-radius: 208px;
+}
+
+.Body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  flex-direction: column;
+  color: aliceblue;
+  font-size: 30px;
+}
+.Body Img {
+  width: 200px;
+  border-radius: 50px;
+}
+.Footer {
+  display: flex;
+  justify-content: space-between;
+  color: aliceblue;
+  height: 30vh;
+  padding: 35px;
+}
+.FooterImg1 {
+  width: 40%;
+  box-sizing: border-box;
+}
+.FooterImg2 {
+  width: 57%;
+  box-sizing: border-box;
+}
+.Windspeed {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Relativehumidity {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
