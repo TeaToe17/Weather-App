@@ -1,77 +1,119 @@
 body {
-  background: url("./images/background 2.jpg");
-  height: fit-content;
+  background: #fff;
+  color: rgb(63, 61, 58);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .Weatherapp {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin-left: 5%;
-  margin-right: 5%;
+  justify-content: space-between;
+  border: 1px solid rgba(170, 77, 77, 0.717);
+  width: 239px;
+  height: 490px;
+  border-radius: 10px;
+  background: #f0f0f0;
+  box-shadow: 2px 8px 20px -1px rgba(0, 0, 0, 0.15);
 }
 .Header {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  margin-bottom: 20px;
-  height: 30vh;
+  margin-bottom: 5px;
+  height: 220px;
+}
+.headerDiv {
+  display: flex;
 }
 .Header input {
   text-indent: 10px;
-  width: 40%;
-  padding-top: 3%;
-  padding-bottom: 3%;
+  width: 150px;
   border-radius: 30px;
   border: none;
   outline: none;
+  background-color: #fdfdfd;
 }
 .Header img {
-  width: 6%;
-  margin: 3%;
-  border-radius: 208px;
-  background-color: white;
-  padding: 9px;
-  /* box-sizing: border-box; */
+  width: 25px;
+  margin: 5px;
+  border-radius: 50%;
+  background-color: #fdfdfd;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.display {
+  color: rgb(52, 46, 46);
+  text-align: center;
+}
+.temperature {
+  background-color: #fdfdfd;
+  box-shadow: 2px 8px 20px -1px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  width: 200px;
+  height: 130px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 10px;
+  padding-left: 5px;
+  padding-top: 5px;
+  box-sizing: border-box;
+  position: relative;
+}
+.temperature img {
+  position: absolute;
+  background: none;
+  width: 64px;
+  height: 64px;
+  left: 120px;
+  top: 10px;
+}
+.temperature p {
+  position: absolute;
+  left: 135px;
+  bottom: 30px;
 }
 
 .Body {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 30vh;
+  text-align: left;
+  margin-left: 22px;
+  height: 100px;
   flex-direction: column;
-  color: aliceblue;
-  font-size: 30px;
+  font-size: 11px;
 }
-.Body Img {
-  width: 200px;
-  border-radius: 50px;
-}
+
 .Footer {
+  margin: 10px;
   display: flex;
-  justify-content: space-between;
-  color: aliceblue;
-  height: 30vh;
-  padding: 35px;
-}
-.FooterImg1 {
-  width: 40%;
-  box-sizing: border-box;
-}
-.FooterImg2 {
-  width: 57%;
-  box-sizing: border-box;
-}
-.Windspeed {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-}
-.Relativehumidity {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+}
+.Footer img {
+  width: 200px;
+}
+@media (max-width: 500px) {
+  .Weatherapp {
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+  }
+  .Body {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    margin-left: 112px;
+    flex-direction: column;
+    font-size: 17px;
+  }
 }
