@@ -92,7 +92,7 @@ const Weatherapp = () => {
           <div className="temperature">
             <h4>TEMPERATURE</h4>
             {temperature && (
-              <h4 style={{ fontSize: "20px" }}> {temperature}°C </h4>
+              <h4 style={{ fontSize: "20px" }}> {Math.floor(temperature)}°C </h4>
             )}
             <img src={cloud} alt=""></img>
             <p>{text}</p>
